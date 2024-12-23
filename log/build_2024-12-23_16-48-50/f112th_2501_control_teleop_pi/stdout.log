@@ -1,0 +1,37 @@
+running egg_info
+creating ../../build/f112th_2501_control_teleop_pi/f112th_2501_control_teleop_pi.egg-info
+writing ../../build/f112th_2501_control_teleop_pi/f112th_2501_control_teleop_pi.egg-info/PKG-INFO
+writing dependency_links to ../../build/f112th_2501_control_teleop_pi/f112th_2501_control_teleop_pi.egg-info/dependency_links.txt
+writing entry points to ../../build/f112th_2501_control_teleop_pi/f112th_2501_control_teleop_pi.egg-info/entry_points.txt
+writing requirements to ../../build/f112th_2501_control_teleop_pi/f112th_2501_control_teleop_pi.egg-info/requires.txt
+writing top-level names to ../../build/f112th_2501_control_teleop_pi/f112th_2501_control_teleop_pi.egg-info/top_level.txt
+writing manifest file '../../build/f112th_2501_control_teleop_pi/f112th_2501_control_teleop_pi.egg-info/SOURCES.txt'
+reading manifest file '../../build/f112th_2501_control_teleop_pi/f112th_2501_control_teleop_pi.egg-info/SOURCES.txt'
+writing manifest file '../../build/f112th_2501_control_teleop_pi/f112th_2501_control_teleop_pi.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/daniel/robotica/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi/build
+creating /home/daniel/robotica/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi/build/lib
+creating /home/daniel/robotica/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi/build/lib/f112th_2501_control_teleop_pi
+copying f112th_2501_control_teleop_pi/__init__.py -> /home/daniel/robotica/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi/build/lib/f112th_2501_control_teleop_pi
+copying f112th_2501_control_teleop_pi/hardware_teleop.py -> /home/daniel/robotica/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi/build/lib/f112th_2501_control_teleop_pi
+running install
+running install_lib
+creating /home/daniel/robotica/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/lib/python3.10/site-packages/f112th_2501_control_teleop_pi
+copying /home/daniel/robotica/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi/build/lib/f112th_2501_control_teleop_pi/__init__.py -> /home/daniel/robotica/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/lib/python3.10/site-packages/f112th_2501_control_teleop_pi
+copying /home/daniel/robotica/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi/build/lib/f112th_2501_control_teleop_pi/hardware_teleop.py -> /home/daniel/robotica/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/lib/python3.10/site-packages/f112th_2501_control_teleop_pi
+byte-compiling /home/daniel/robotica/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/lib/python3.10/site-packages/f112th_2501_control_teleop_pi/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/daniel/robotica/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/lib/python3.10/site-packages/f112th_2501_control_teleop_pi/hardware_teleop.py to hardware_teleop.cpython-310.pyc
+running install_data
+creating /home/daniel/robotica/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/share
+creating /home/daniel/robotica/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/share/ament_index
+creating /home/daniel/robotica/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/share/ament_index/resource_index
+creating /home/daniel/robotica/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/share/ament_index/resource_index/packages
+copying resource/f112th_2501_control_teleop_pi -> /home/daniel/robotica/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/share/ament_index/resource_index/packages
+creating /home/daniel/robotica/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/share/f112th_2501_control_teleop_pi
+copying package.xml -> /home/daniel/robotica/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/share/f112th_2501_control_teleop_pi
+running install_egg_info
+Copying ../../build/f112th_2501_control_teleop_pi/f112th_2501_control_teleop_pi.egg-info to /home/daniel/robotica/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/lib/python3.10/site-packages/f112th_2501_control_teleop_pi-1.0.0-py3.10.egg-info
+running install_scripts
+Installing hardware_teleop script to /home/daniel/robotica/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/lib/f112th_2501_control_teleop_pi
+writing list of installed files to '/home/daniel/robotica/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi/install.log'

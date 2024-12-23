@@ -1,0 +1,39 @@
+[0.652s] Invoking command in '/home/daniel/robotica/f112th_2501_camel_rpi4/src/f112th_2501_control_teleop_pi': PYTHONPATH=/home/daniel/robotica/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/daniel/robotica/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/f112th_2501_control_teleop_pi build --build-base /home/daniel/robotica/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi/build install --record /home/daniel/robotica/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi/install.log --single-version-externally-managed install_data
+[0.857s] running egg_info
+[0.858s] creating ../../build/f112th_2501_control_teleop_pi/f112th_2501_control_teleop_pi.egg-info
+[0.858s] writing ../../build/f112th_2501_control_teleop_pi/f112th_2501_control_teleop_pi.egg-info/PKG-INFO
+[0.858s] writing dependency_links to ../../build/f112th_2501_control_teleop_pi/f112th_2501_control_teleop_pi.egg-info/dependency_links.txt
+[0.858s] writing entry points to ../../build/f112th_2501_control_teleop_pi/f112th_2501_control_teleop_pi.egg-info/entry_points.txt
+[0.858s] writing requirements to ../../build/f112th_2501_control_teleop_pi/f112th_2501_control_teleop_pi.egg-info/requires.txt
+[0.858s] writing top-level names to ../../build/f112th_2501_control_teleop_pi/f112th_2501_control_teleop_pi.egg-info/top_level.txt
+[0.858s] writing manifest file '../../build/f112th_2501_control_teleop_pi/f112th_2501_control_teleop_pi.egg-info/SOURCES.txt'
+[0.860s] reading manifest file '../../build/f112th_2501_control_teleop_pi/f112th_2501_control_teleop_pi.egg-info/SOURCES.txt'
+[0.860s] writing manifest file '../../build/f112th_2501_control_teleop_pi/f112th_2501_control_teleop_pi.egg-info/SOURCES.txt'
+[0.860s] running build
+[0.861s] running build_py
+[0.861s] creating /home/daniel/robotica/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi/build
+[0.861s] creating /home/daniel/robotica/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi/build/lib
+[0.861s] creating /home/daniel/robotica/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi/build/lib/f112th_2501_control_teleop_pi
+[0.861s] copying f112th_2501_control_teleop_pi/__init__.py -> /home/daniel/robotica/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi/build/lib/f112th_2501_control_teleop_pi
+[0.861s] copying f112th_2501_control_teleop_pi/hardware_teleop.py -> /home/daniel/robotica/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi/build/lib/f112th_2501_control_teleop_pi
+[0.861s] running install
+[0.861s] running install_lib
+[0.861s] creating /home/daniel/robotica/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/lib/python3.10/site-packages/f112th_2501_control_teleop_pi
+[0.862s] copying /home/daniel/robotica/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi/build/lib/f112th_2501_control_teleop_pi/__init__.py -> /home/daniel/robotica/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/lib/python3.10/site-packages/f112th_2501_control_teleop_pi
+[0.862s] copying /home/daniel/robotica/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi/build/lib/f112th_2501_control_teleop_pi/hardware_teleop.py -> /home/daniel/robotica/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/lib/python3.10/site-packages/f112th_2501_control_teleop_pi
+[0.862s] byte-compiling /home/daniel/robotica/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/lib/python3.10/site-packages/f112th_2501_control_teleop_pi/__init__.py to __init__.cpython-310.pyc
+[0.862s] byte-compiling /home/daniel/robotica/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/lib/python3.10/site-packages/f112th_2501_control_teleop_pi/hardware_teleop.py to hardware_teleop.cpython-310.pyc
+[0.862s] running install_data
+[0.863s] creating /home/daniel/robotica/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/share
+[0.863s] creating /home/daniel/robotica/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/share/ament_index
+[0.863s] creating /home/daniel/robotica/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/share/ament_index/resource_index
+[0.863s] creating /home/daniel/robotica/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/share/ament_index/resource_index/packages
+[0.863s] copying resource/f112th_2501_control_teleop_pi -> /home/daniel/robotica/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/share/ament_index/resource_index/packages
+[0.863s] creating /home/daniel/robotica/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/share/f112th_2501_control_teleop_pi
+[0.863s] copying package.xml -> /home/daniel/robotica/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/share/f112th_2501_control_teleop_pi
+[0.863s] running install_egg_info
+[0.864s] Copying ../../build/f112th_2501_control_teleop_pi/f112th_2501_control_teleop_pi.egg-info to /home/daniel/robotica/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/lib/python3.10/site-packages/f112th_2501_control_teleop_pi-1.0.0-py3.10.egg-info
+[0.865s] running install_scripts
+[0.882s] Installing hardware_teleop script to /home/daniel/robotica/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/lib/f112th_2501_control_teleop_pi
+[0.882s] writing list of installed files to '/home/daniel/robotica/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi/install.log'
+[0.901s] Invoked command in '/home/daniel/robotica/f112th_2501_camel_rpi4/src/f112th_2501_control_teleop_pi' returned '0': PYTHONPATH=/home/daniel/robotica/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/daniel/robotica/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/f112th_2501_control_teleop_pi build --build-base /home/daniel/robotica/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi/build install --record /home/daniel/robotica/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi/install.log --single-version-externally-managed install_data
