@@ -1,0 +1,19 @@
+[2.412s] Invoking command in '/home/camel/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi': PYTHONPATH=/home/camel/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/camel/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/lib/python3.10/site-packages: /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/camel/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi/build --no-deps symlink_data --force
+[3.233s] running develop
+[3.586s] running egg_info
+[3.587s] writing f112th_2501_control_teleop_pi.egg-info/PKG-INFO
+[3.587s] writing dependency_links to f112th_2501_control_teleop_pi.egg-info/dependency_links.txt
+[3.588s] writing entry points to f112th_2501_control_teleop_pi.egg-info/entry_points.txt
+[3.589s] writing requirements to f112th_2501_control_teleop_pi.egg-info/requires.txt
+[3.589s] writing top-level names to f112th_2501_control_teleop_pi.egg-info/top_level.txt
+[3.596s] reading manifest file 'f112th_2501_control_teleop_pi.egg-info/SOURCES.txt'
+[3.600s] writing manifest file 'f112th_2501_control_teleop_pi.egg-info/SOURCES.txt'
+[3.606s] running build_ext
+[3.607s] Creating /home/camel/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/lib/python3.10/site-packages/f112th-2501-control-teleop-pi.egg-link (link to .)
+[3.611s] Installing hardware_teleop script to /home/camel/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/lib/f112th_2501_control_teleop_pi
+[3.612s] 
+[3.613s] Installed /home/camel/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi
+[3.613s] running symlink_data
+[3.614s] symbolically linking /home/camel/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi/resource/f112th_2501_control_teleop_pi -> /home/camel/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/share/ament_index/resource_index/packages
+[3.614s] symbolically linking /home/camel/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi/package.xml -> /home/camel/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/share/f112th_2501_control_teleop_pi
+[3.732s] Invoked command in '/home/camel/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi' returned '0': PYTHONPATH=/home/camel/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/camel/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/lib/python3.10/site-packages: /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/camel/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi/build --no-deps symlink_data --force

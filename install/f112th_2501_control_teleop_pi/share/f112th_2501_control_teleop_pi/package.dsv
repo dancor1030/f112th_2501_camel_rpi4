@@ -1,3 +1,6 @@
 source;share/f112th_2501_control_teleop_pi/hook/pythonpath.ps1
 source;share/f112th_2501_control_teleop_pi/hook/pythonpath.dsv
 source;share/f112th_2501_control_teleop_pi/hook/pythonpath.sh
+source;../../build/f112th_2501_control_teleop_pi/share/f112th_2501_control_teleop_pi/hook/pythonpath_develop.ps1
+source;../../build/f112th_2501_control_teleop_pi/share/f112th_2501_control_teleop_pi/hook/pythonpath_develop.dsv
+source;../../build/f112th_2501_control_teleop_pi/share/f112th_2501_control_teleop_pi/hook/pythonpath_develop.sh
