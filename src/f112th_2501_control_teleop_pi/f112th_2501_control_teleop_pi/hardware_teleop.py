@@ -23,9 +23,14 @@ class HW_TELEOP(Node):
         # 'remote' means it is the value obtained from the remote controller
         self.remotedir = data.axes[0]
         self.remotethrust = data.axes[5]
-        
+        self.reverse = data.buttons[3]
+
         self.dir = map(self.remotedir, 0, 90, 1, 135)
-        self.thrust = map(self.remotethrust, 1, 90, -1, 100)
+        if self.reverse == 0:
+            self.thrust = map(self.remotethrust, 1, 90, -1, 120)
+        else:
+            self.thrust = map(self.remotethrust, 1, 90, -1, 75)
+
 
         print(f'dir: {self.dir} | thrust: {self.thrust}')
         
