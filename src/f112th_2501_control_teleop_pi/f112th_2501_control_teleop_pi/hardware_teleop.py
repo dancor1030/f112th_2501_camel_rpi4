@@ -1,23 +1,43 @@
+from  Rosmaster_Lib  import  Rosmaster
 import rclpy
-import numpy as np
-from geometry_msgs.msg import Twist
+from sensor_msgs.msg import Joy
 from rclpy.node import Node
+import time
+
+bot = Rosmaster()
+
+def map(x, xmin, ymin, xmax, ymax):
+    a = (ymax - ymin) / (xmax - xmin)
+    b = ymin - a*xmin
+    y = a*x + b
+    return y
 
 class HW_TELEOP(Node):
     def __init__(self):
         super().__init__("hardware_teleop_node")
 
-        self.sub = self.create_subscription(Twist, "cmd_vel", self.pwm_response)
+        self.sub = self.create_subscription(Joy, "joy", self.act, 1)
+        # self.pub = self.create_publisher()
 
-    def pwm_response(self, data):
-        self.thrust = data.linear.x
-        self.angle = data.angular.x
+    def act(self, data):
+        # 'remote' means it is the value obtained from the remote controller
+        self.remotedir = data.axes[0]
+        self.remotethrust = data.axes[5]
+        
+        self.dir = map(self.remotedir, 0, 90, 1, 135)
+        self.thrust = map(self.remotethrust, 1, 90, -1, 100)
 
-    # def 
+        print(f'dir: {self.dir} | thrust: {self.thrust}')
+        
+        bot.set_pwm_servo(1, self.thrust)
+        bot.set_pwm_servo(2, self.dir)
 
-def main():
-    print('Hi from f112th_2501_control_teleop_pi.')
 
+def main(args=None):
+    rclpy.init(args=args)
+    hw_node = HW_TELEOP()
+    rclpy.spin(hw_node)
+    rclpy.shutdown()
 
 if __name__ == '__main__':
     main()
