@@ -1,0 +1,94 @@
+[0.000000] (-) TimerEvent: {}
+[0.000828] (f112th_2501_control_teleop_pi) JobQueued: {'identifier': 'f112th_2501_control_teleop_pi', 'dependencies': OrderedDict()}
+[0.001183] (f112th_2501_control_teleop_pi) JobStarted: {'identifier': 'f112th_2501_control_teleop_pi'}
+[0.098057] (-) TimerEvent: {}
+[0.198704] (-) TimerEvent: {}
+[0.299299] (-) TimerEvent: {}
+[0.399877] (-) TimerEvent: {}
+[0.500457] (-) TimerEvent: {}
+[0.601030] (-) TimerEvent: {}
+[0.701583] (-) TimerEvent: {}
+[0.802186] (-) TimerEvent: {}
+[0.902833] (-) TimerEvent: {}
+[1.004316] (-) TimerEvent: {}
+[1.104965] (-) TimerEvent: {}
+[1.205574] (-) TimerEvent: {}
+[1.306174] (-) TimerEvent: {}
+[1.406777] (-) TimerEvent: {}
+[1.507344] (-) TimerEvent: {}
+[1.607914] (-) TimerEvent: {}
+[1.708783] (-) TimerEvent: {}
+[1.809362] (-) TimerEvent: {}
+[1.909975] (-) TimerEvent: {}
+[2.010721] (-) TimerEvent: {}
+[2.111699] (-) TimerEvent: {}
+[2.212300] (-) TimerEvent: {}
+[2.312942] (-) TimerEvent: {}
+[2.413604] (-) TimerEvent: {}
+[2.514260] (-) TimerEvent: {}
+[2.614984] (-) TimerEvent: {}
+[2.715570] (-) TimerEvent: {}
+[2.816411] (-) TimerEvent: {}
+[2.872036] (f112th_2501_control_teleop_pi) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--uninstall', '--editable', '--build-directory', '/home/camel/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi/build'], 'cwd': '/home/camel/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'camel', 'SSH_CLIENT': '172.20.10.5 44088 22', 'LC_TIME': 'es_CO.UTF-8', 'XDG_SESSION_TYPE': 'tty', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib', 'MOTD_SHOWN': 'pam', 'HOME': '/home/camel', 'OLDPWD': '/home/camel', 'SSH_TTY': '/dev/pts/0', 'ROS_PYTHON_VERSION': '3', 'LC_MONETARY': 'es_CO.UTF-8', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLCON_PREFIX_PATH': '/home/camel/f112th_2501_camel_rpi4/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'camel', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '1', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'LC_ADDRESS': 'es_CO.UTF-8', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'en_US.UTF-8', 'LC_TELEPHONE': 'es_CO.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'AMENT_PREFIX_PATH': '/opt/ros/humble', 'SHELL': '/bin/bash', 'LC_NAME': 'es_CO.UTF-8', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LC_MEASUREMENT': 'es_CO.UTF-8', 'LC_IDENTIFICATION': 'es_CO.UTF-8', 'PWD': '/home/camel/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi', 'LC_ALL': 'en_US.UTF-8', 'SSH_CONNECTION': '172.20.10.5 44088 172.20.10.2 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/camel/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/camel/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/lib/python3.10/site-packages:/home/camel/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi:/home/camel/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'LC_NUMERIC': 'es_CO.UTF-8', 'LC_PAPER': 'es_CO.UTF-8', 'COLCON': '1'}, 'shell': False}
+[2.916555] (-) TimerEvent: {}
+[3.017197] (-) TimerEvent: {}
+[3.117848] (-) TimerEvent: {}
+[3.218504] (-) TimerEvent: {}
+[3.319081] (-) TimerEvent: {}
+[3.419648] (-) TimerEvent: {}
+[3.520206] (-) TimerEvent: {}
+[3.620804] (-) TimerEvent: {}
+[3.721384] (-) TimerEvent: {}
+[3.821961] (-) TimerEvent: {}
+[3.839994] (f112th_2501_control_teleop_pi) StdoutLine: {'line': b'running develop\n'}
+[3.922121] (-) TimerEvent: {}
+[4.022722] (-) TimerEvent: {}
+[4.123307] (-) TimerEvent: {}
+[4.223921] (-) TimerEvent: {}
+[4.324494] (-) TimerEvent: {}
+[4.376597] (f112th_2501_control_teleop_pi) StdoutLine: {'line': b'Removing /home/camel/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/lib/python3.10/site-packages/f112th-2501-control-teleop-pi.egg-link (link to .)\n'}
+[4.424735] (-) TimerEvent: {}
+[4.498050] (f112th_2501_control_teleop_pi) CommandEnded: {'returncode': 0}
+[4.501248] (f112th_2501_control_teleop_pi) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/f112th_2501_control_teleop_pi', 'build', '--build-base', '/home/camel/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi/build', 'install', '--record', '/home/camel/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi/install.log', '--single-version-externally-managed', 'install_data', '--force'], 'cwd': '/home/camel/f112th_2501_camel_rpi4/src/f112th_2501_control_teleop_pi', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'camel', 'SSH_CLIENT': '172.20.10.5 44088 22', 'LC_TIME': 'es_CO.UTF-8', 'XDG_SESSION_TYPE': 'tty', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib', 'MOTD_SHOWN': 'pam', 'HOME': '/home/camel', 'OLDPWD': '/home/camel', 'SSH_TTY': '/dev/pts/0', 'ROS_PYTHON_VERSION': '3', 'LC_MONETARY': 'es_CO.UTF-8', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLCON_PREFIX_PATH': '/home/camel/f112th_2501_camel_rpi4/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'camel', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '1', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'LC_ADDRESS': 'es_CO.UTF-8', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'en_US.UTF-8', 'LC_TELEPHONE': 'es_CO.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'AMENT_PREFIX_PATH': '/opt/ros/humble', 'SHELL': '/bin/bash', 'LC_NAME': 'es_CO.UTF-8', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LC_MEASUREMENT': 'es_CO.UTF-8', 'LC_IDENTIFICATION': 'es_CO.UTF-8', 'PWD': '/home/camel/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi', 'LC_ALL': 'en_US.UTF-8', 'SSH_CONNECTION': '172.20.10.5 44088 172.20.10.2 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/camel/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/camel/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/lib/python3.10/site-packages:/home/camel/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi:/home/camel/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'LC_NUMERIC': 'es_CO.UTF-8', 'LC_PAPER': 'es_CO.UTF-8', 'COLCON': '1'}, 'shell': False}
+[4.524880] (-) TimerEvent: {}
+[4.625512] (-) TimerEvent: {}
+[4.726139] (-) TimerEvent: {}
+[4.826760] (-) TimerEvent: {}
+[4.927339] (-) TimerEvent: {}
+[5.027906] (-) TimerEvent: {}
+[5.128484] (-) TimerEvent: {}
+[5.229042] (-) TimerEvent: {}
+[5.329617] (-) TimerEvent: {}
+[5.378844] (f112th_2501_control_teleop_pi) StdoutLine: {'line': b'running egg_info\n'}
+[5.381557] (f112th_2501_control_teleop_pi) StdoutLine: {'line': b'writing ../../build/f112th_2501_control_teleop_pi/f112th_2501_control_teleop_pi.egg-info/PKG-INFO\n'}
+[5.382673] (f112th_2501_control_teleop_pi) StdoutLine: {'line': b'writing dependency_links to ../../build/f112th_2501_control_teleop_pi/f112th_2501_control_teleop_pi.egg-info/dependency_links.txt\n'}
+[5.383642] (f112th_2501_control_teleop_pi) StdoutLine: {'line': b'writing entry points to ../../build/f112th_2501_control_teleop_pi/f112th_2501_control_teleop_pi.egg-info/entry_points.txt\n'}
+[5.384542] (f112th_2501_control_teleop_pi) StdoutLine: {'line': b'writing requirements to ../../build/f112th_2501_control_teleop_pi/f112th_2501_control_teleop_pi.egg-info/requires.txt\n'}
+[5.385176] (f112th_2501_control_teleop_pi) StdoutLine: {'line': b'writing top-level names to ../../build/f112th_2501_control_teleop_pi/f112th_2501_control_teleop_pi.egg-info/top_level.txt\n'}
+[5.392455] (f112th_2501_control_teleop_pi) StdoutLine: {'line': b"reading manifest file '../../build/f112th_2501_control_teleop_pi/f112th_2501_control_teleop_pi.egg-info/SOURCES.txt'\n"}
+[5.397752] (f112th_2501_control_teleop_pi) StdoutLine: {'line': b"writing manifest file '../../build/f112th_2501_control_teleop_pi/f112th_2501_control_teleop_pi.egg-info/SOURCES.txt'\n"}
+[5.398346] (f112th_2501_control_teleop_pi) StdoutLine: {'line': b'running build\n'}
+[5.398818] (f112th_2501_control_teleop_pi) StdoutLine: {'line': b'running build_py\n'}
+[5.399588] (f112th_2501_control_teleop_pi) StdoutLine: {'line': b'copying f112th_2501_control_teleop_pi/hardware_teleop.py -> /home/camel/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi/build/lib/f112th_2501_control_teleop_pi\n'}
+[5.400550] (f112th_2501_control_teleop_pi) StdoutLine: {'line': b'copying f112th_2501_control_teleop_pi/servo_esc_test.py -> /home/camel/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi/build/lib/f112th_2501_control_teleop_pi\n'}
+[5.402931] (f112th_2501_control_teleop_pi) StdoutLine: {'line': b'running install\n'}
+[5.404142] (f112th_2501_control_teleop_pi) StdoutLine: {'line': b'running install_lib\n'}
+[5.407758] (f112th_2501_control_teleop_pi) StdoutLine: {'line': b'copying /home/camel/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi/build/lib/f112th_2501_control_teleop_pi/hardware_teleop.py -> /home/camel/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/lib/python3.10/site-packages/f112th_2501_control_teleop_pi\n'}
+[5.408824] (f112th_2501_control_teleop_pi) StdoutLine: {'line': b'copying /home/camel/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi/build/lib/f112th_2501_control_teleop_pi/servo_esc_test.py -> /home/camel/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/lib/python3.10/site-packages/f112th_2501_control_teleop_pi\n'}
+[5.411570] (f112th_2501_control_teleop_pi) StdoutLine: {'line': b'byte-compiling /home/camel/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/lib/python3.10/site-packages/f112th_2501_control_teleop_pi/hardware_teleop.py to hardware_teleop.cpython-310.pyc\n'}
+[5.414608] (f112th_2501_control_teleop_pi) StdoutLine: {'line': b'byte-compiling /home/camel/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/lib/python3.10/site-packages/f112th_2501_control_teleop_pi/servo_esc_test.py to servo_esc_test.cpython-310.pyc\n'}
+[5.416258] (f112th_2501_control_teleop_pi) StdoutLine: {'line': b'running install_data\n'}
+[5.416834] (f112th_2501_control_teleop_pi) StdoutLine: {'line': b'copying resource/f112th_2501_control_teleop_pi -> /home/camel/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/share/ament_index/resource_index/packages\n'}
+[5.418751] (f112th_2501_control_teleop_pi) StdoutLine: {'line': b'copying package.xml -> /home/camel/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/share/f112th_2501_control_teleop_pi\n'}
+[5.419963] (f112th_2501_control_teleop_pi) StdoutLine: {'line': b'running install_egg_info\n'}
+[5.426825] (f112th_2501_control_teleop_pi) StdoutLine: {'line': b"removing '/home/camel/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/lib/python3.10/site-packages/f112th_2501_control_teleop_pi-1.0.0-py3.10.egg-info' (and everything under it)\n"}
+[5.428534] (f112th_2501_control_teleop_pi) StdoutLine: {'line': b'Copying ../../build/f112th_2501_control_teleop_pi/f112th_2501_control_teleop_pi.egg-info to /home/camel/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/lib/python3.10/site-packages/f112th_2501_control_teleop_pi-1.0.0-py3.10.egg-info\n'}
+[5.429735] (-) TimerEvent: {}
+[5.435676] (f112th_2501_control_teleop_pi) StdoutLine: {'line': b'running install_scripts\n'}
+[5.512885] (f112th_2501_control_teleop_pi) StdoutLine: {'line': b'Installing hardware_teleop script to /home/camel/f112th_2501_camel_rpi4/install/f112th_2501_control_teleop_pi/lib/f112th_2501_control_teleop_pi\n'}
+[5.514581] (f112th_2501_control_teleop_pi) StdoutLine: {'line': b"writing list of installed files to '/home/camel/f112th_2501_camel_rpi4/build/f112th_2501_control_teleop_pi/install.log'\n"}
+[5.529991] (-) TimerEvent: {}
+[5.625564] (f112th_2501_control_teleop_pi) CommandEnded: {'returncode': 0}
+[5.630099] (-) TimerEvent: {}
+[5.703182] (f112th_2501_control_teleop_pi) JobEnded: {'identifier': 'f112th_2501_control_teleop_pi', 'rc': 0}
+[5.705851] (-) EventReactorShutdown: {}

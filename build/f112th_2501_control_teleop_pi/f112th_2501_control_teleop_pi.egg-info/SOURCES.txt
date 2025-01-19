@@ -10,11 +10,8 @@ setup.py
 ../../build/f112th_2501_control_teleop_pi/f112th_2501_control_teleop_pi.egg-info/zip-safe
 f112th_2501_control_teleop_pi/__init__.py
 f112th_2501_control_teleop_pi/hardware_teleop.py
-f112th_2501_control_teleop_pi.egg-info/PKG-INFO
-f112th_2501_control_teleop_pi.egg-info/SOURCES.txt
-f112th_2501_control_teleop_pi.egg-info/dependency_links.txt
-f112th_2501_control_teleop_pi.egg-info/entry_points.txt
-f112th_2501_control_teleop_pi.egg-info/requires.txt
-f112th_2501_control_teleop_pi.egg-info/top_level.txt
-f112th_2501_control_teleop_pi.egg-info/zip-safe
+f112th_2501_control_teleop_pi/servo_esc_test.py
 resource/f112th_2501_control_teleop_pi
+test/test_copyright.py
+test/test_flake8.py
+test/test_pep257.py

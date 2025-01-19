@@ -4,7 +4,7 @@
   <name>f112th_2501_control_teleop_pi</name>
   <version>0.0.0</version>
   <description>TODO: Package description</description>
-  <maintainer email="andresfmc223.com">laxted</maintainer>
+  <maintainer email="example@example.com">example</maintainer>
   <license>TODO: License declaration</license>
 
   <test_depend>ament_copyright</test_depend>
