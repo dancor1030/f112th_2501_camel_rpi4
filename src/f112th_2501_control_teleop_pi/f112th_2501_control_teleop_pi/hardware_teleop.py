@@ -34,8 +34,8 @@ class HW_TELEOP(Node):
 
         print(f'dir: {self.dir} | thrust: {self.thrust}')
         
-        bot.set_pwm_servo(1, self.thrust)
-        bot.set_pwm_servo(2, self.dir)
+        bot.set_pwm_servo(1, self.dir)
+        bot.set_pwm_servo(2, self.thrust)
 
 
 def main(args=None):
