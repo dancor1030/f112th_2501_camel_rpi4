@@ -16,7 +16,7 @@ class HW_TELEOP(Node):
     def __init__(self):
         super().__init__("hardware_teleop_node")
 
-        self.sub = self.create_subscription(Joy, "joy", self.act, 1)
+        self.sub = self.create_subscription(Joy, "joy", self.act, 10)
         # self.pub = self.create_publisher()
 
     def act(self, data):
