@@ -20,6 +20,7 @@ class HW_TELEOP(Node):
         # self.pub = self.create_publisher()
 
     def act(self, data):
+        self.deadman = data.buttons[4]
         # 'remote' means it is the value obtained from the remote controller
         self.remotedir = data.axes[0]
         self.remotethrust = data.axes[5]
