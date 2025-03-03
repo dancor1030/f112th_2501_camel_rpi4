@@ -24,7 +24,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'hardware_teleop = f112th_2501_control_teleop_pi.hardware_teleop:main'
+            'hardware_teleop = f112th_2501_control_teleop_pi.hardware_teleop:main',
+            'aeb = f112th_2501_control_teleop_pi.aeb_brake:main'
         ],
     },
 )

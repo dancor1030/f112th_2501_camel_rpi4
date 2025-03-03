@@ -25,8 +25,9 @@ class HW_TELEOP(Node):
         self.remotedir = data.linear.z
         self.remotethrust = data.linear.x
         self.reverse = data.lnear.y
-
         self.dir = map(self.remotedir, 0, 90, 1, 135)
+
+        #!Modify
         if self.reverse == 0:
             self.thrust = map(self.remotethrust, 1, 90, -1, 120)
         else:

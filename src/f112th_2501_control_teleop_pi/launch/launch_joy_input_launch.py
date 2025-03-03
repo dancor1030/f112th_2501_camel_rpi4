@@ -11,7 +11,6 @@ def generate_launch_description():
     twist_mux_params = os.path.join(get_package_share_directory(package_name),'config','mux.yaml')
 
 
-
     joy_node = Node(package='joy', 
                     executable='joy_node',
                     parameters=[joy_params],
@@ -21,17 +20,24 @@ def generate_launch_description():
                     executable='teleop_node',
                     name="teleop_node",
                     parameters=[joy_params],
-                    remappings=[('/cmd_vel','/diff_cont/cmd_vel_unstamped')]
+                    remappings=[('/cmd_vel','/cmd_vel_joy')]
     )
 
 
     twist_mux_node = Node(package='twist_mux', 
                     executable='twist_mux',
                     parameters=[twist_mux_params,{'use_sim_time': True}],
-                    remappings=[('/cmd_vel_out','/diff_cont/cmd_vel_unstamped')]
+                    remappings=[('/cmd_vel_out','/cmd_vel')]
     )
 
     
+    aeb = Node(package='twist_mux', 
+                    executable='twist_mux',
+                    parameters=[twist_mux_params,{'use_sim_time': True}],
+                    remappings=[('/cmd_vel_out','/cmd_vel')]
+    )
+
+
     # Launch them all!
     return LaunchDescription([
         joy_node,

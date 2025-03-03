@@ -7,7 +7,7 @@ joy_node:
 teleop_node:
   ros__parameters:
     axis_linear:
-      x: 1
+      x: 5
     scale_linear:
       x: 0.5
 
