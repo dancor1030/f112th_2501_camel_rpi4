@@ -14,6 +14,7 @@ setup(
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
         (os.path.join('share', package_name, 'launch'), glob(os.path.join('launch', '*launch.[pxy][yma]*'))),
+        (os.path.join('share', package_name, 'config'), glob(os.path.join('config', '*.[yaml]*'))),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -24,7 +25,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'hardware_teleop = f112th_2501_control_teleop_pi.hardware_teleop:main'
+            'hardware_teleop = f112th_2501_control_teleop_pi.hardware_teleop:main',
+            'aebs_node = f112th_2501_control_teleop_pi.aebs:main' 
         ],
     },
 )
