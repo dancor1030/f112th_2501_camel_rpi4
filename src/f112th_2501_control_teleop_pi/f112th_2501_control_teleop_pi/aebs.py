@@ -37,7 +37,7 @@ class Braking_system(Node):
         self.declare_parameters(
             namespace='',
             parameters=[
-                ('min_time_col', 0.5)
+                ('min_time_col', 1.)
             ]
         )
         self.emergency_msg.linear.x = 0.0
@@ -112,7 +112,7 @@ class Braking_system(Node):
 
 
         ## COMPUTE SPEED
-        dx =  (self.currdistance - self.prev_distance)
+        dx =  (self.prev_distance - self.currdistance)
         self.speed = dx/dt
         filteredspeed = self.lpf(self.speed, self.speed_km1, self.alpha)
         ## COMPUTE SPEED
