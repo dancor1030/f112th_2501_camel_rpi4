@@ -37,7 +37,7 @@ class Braking_system(Node):
         self.declare_parameters(
             namespace='',
             parameters=[
-                ('min_time_col', 1.)
+                ('min_time_col', 2.)
             ]
         )
         self.emergency_msg.linear.x = 0.0
