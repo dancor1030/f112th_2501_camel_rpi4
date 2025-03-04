@@ -19,8 +19,8 @@ class Braking_system(Node):
         self.emergency_msg = Twist()
 
         ##? LPF 
-        self.speed_km1 = 0. # speed in k-1 (after filtering)
-        self.speed = 0. # speed in time k (before filtering)
+        self.prev_speeds = [0.] # speed in k-1 (after filtering)
+        self.speeds = [0.] # speed in time k (before filtering)
         self.alpha = 0.8
         ##? LPF 
 
@@ -28,7 +28,7 @@ class Braking_system(Node):
         self.CONVERT_ms = 1e-3
         self.CONVERT_us = 1e-6
         self.CONVERT_ns = 1e-9
-        self.angular_thres = 40 #! default = 40
+        self.angular_thres = 1 #! default = 40
         self.FIRST_TIME = True
         self.close_range = np.round(np.arange(0.09, 0.2, 0.01), 2) #* range for detecting "close objects"
         ## CONSTANTS
@@ -41,7 +41,10 @@ class Braking_system(Node):
             ]
         )
         self.emergency_msg.linear.x = 0.0
-        self.emergency_msg.linear.y = 0.0       
+        self.emergency_msg.linear.y = 0.0     
+
+        self.ttc_thres = self.get_parameter('min_time_col').get_parameter_value().double_value
+
 
     def lidar_callback(self, data):
 
@@ -70,6 +73,8 @@ class Braking_system(Node):
 
             ## CAP MIN DISTANCE SO IT DOES NOT RECOGNIZE IT AS INF
             if self.FIRST_TIME == True:
+                self.prev_rays = np.zeros(len(rays)).tolist()
+                self.prev_speeds = np.zeros(len(rays)).tolist()
                 self.FIRST_TIME = False
             else:
                 for iray in range(len(rays)):
@@ -77,13 +82,12 @@ class Braking_system(Node):
                         rays[iray] = 0.1
                     else:
                         pass
-            self.prev_rays = rays
             ## CAP MIN DISTANCE SO IT DOES NOT RECOGNIZE IT AS INF  
 
 
             ## EXCLUDE INF VLAUES AND FIND MINIMUM RAY
-            rays = [x for x in rays if x not in (float('inf'), float('-inf'))]
-            minray = min(rays)
+            # rays = [x for x in rays if x not in (float('inf'), float('-inf'))] #! Try to see if this is still needed
+            minray = min(rays) #! do i still need this ?
             ## EXCLUDE INF VLAUES AND FIND MINIMUM RAY
 
         except Exception as e:
@@ -112,39 +116,55 @@ class Braking_system(Node):
 
 
         ## COMPUTE SPEED
-        dx =  (self.prev_distance - self.currdistance)
-        self.speed = dx/dt
-        filteredspeed = self.lpf(self.speed, self.speed_km1, self.alpha)
+        dxs = [self.prev_rays[iray] - (rays[iray]) for iray in range(len(rays))]        
+        self.speeds = [dx/dt for dx in dxs]
+        filteredspeeds = [self.lpf(self.speeds[i], self.prev_speeds[i], self.alpha) for i in range(len(self.speeds))]
         ## COMPUTE SPEED
 
 
-        ## CAP FILTERED SPEED IF NAN OR INF
-        if filteredspeed in (float('inf'), float('-inf')) or isnan(filteredspeed):
-            filteredspeed = self.speed_km1
-        ## CAP FILTERED SPEED IF NAN OR INF
+        for i in range(len(filteredspeeds)):
+            filspeed = filteredspeeds[i]
+
+            ## CAP FILTERED SPEED IF NAN OR INF
+            if filspeed in (float('inf'), float('-inf')) or isnan(filspeed):
+                filteredspeeds[i] = self.prev_speeds[i]
+                print('\nCORRECTING SPEED\n')
+            ## CAP FILTERED SPEED IF NAN OR INF
 
 
-        ## COMPUTE TTC
-        if filteredspeed > 0:
-            time_to_collition = minray/filteredspeed
-        else:
-            time_to_collition = 1000 #! BIG SO IT DOES NOT STOP
-        ## COMPUTE TTC
+            ## COMPUTE TTC
+            if filspeed > 0 and filspeed not in (float('inf'), float('-inf')) or isnan(filspeed):
+                time_to_collition = rays[i]/filspeed
+            else:
+                time_to_collition = 101 #! BIG SO IT DOES NOT STOP | 101 means standard ttc (i defined it as that)
+            ## COMPUTE TTC
 
 
-        ## re-assign vars
-        self.speed_km1 = filteredspeed        
-        self.prev_distance = self.currdistance
+            ## APPLY EMERGENCY BRAKING
+            if(time_to_collition < self.ttc_thres):
+                print('\n!!! BRAKING !!!\n')
+                self.emergency_pub.publish(self.emergency_msg)
+                break
+            ## APPLY EMERGENCY BRAKING
+
+
+        ## RE ASSIGN VARIABLES
+        self.prev_rays = rays
+        self.prev_speeds = filteredspeeds        
+        # self.prev_distance = self.currdistance #! do i still need this?
         self.prevtime = self.currtime
-        ## re-assign vars
+        ## RE ASSIGN VARIABLES
 
 
         #* PRINTS ================================
         # print(f'minray = {toprint} | ttc = {time_to_collition} | lpf = {filteredspeed} | speed = {self.speed}')
         # print(f'ttc = {time_to_collition} | lpf = {filteredspeed}')
         
-        print(f'ttc={round(time_to_collition, 3)} | lpf={round(filteredspeed, 3)} | speed={round(self.speed, 3)} | x={round(self.currdistance, 3)} x1={round(self.prev_distance, 3)} dx={round(dx, 3)}')
+        # print(f'ttc={round(time_to_collition, 3)} | lpf={round(self.speeds, 3)} | speed={round(self.speed, 3)} | x={round(self.currdistance, 3)} x1={round(self.prev_distance, 3)} dx={round(dx, 3)}')
         
+        print(filteredspeeds)
+        print(time_to_collition)
+
         # print(f'minray = {minray} | filspeed = {filteredspeed} | speed = {self.speed} | dx = {dx}')
 
         # print(f'speed = {self.speed}')
@@ -157,13 +177,6 @@ class Braking_system(Node):
         #* PRINTS ================================
         ##? SELECT RAY AND COMPUTE TIME_TO_COLLISION
 
-
-        param = self.get_parameter('min_time_col').get_parameter_value().double_value
-
-
-        if(time_to_collition < param):
-            print('!!! BRAKING !!!')
-            self.emergency_pub.publish(self.emergency_msg)
 
     def lpf(self, data, pastdata, alpha):
         filtered = alpha * data + (1 - alpha) * pastdata
