@@ -21,14 +21,14 @@ class Braking_system(Node):
         ##? LPF 
         self.prev_speeds = [0.] # speed in k-1 (after filtering)
         self.speeds = [0.] # speed in time k (before filtering)
-        self.alpha = 0.8
+        self.alpha = 0.4
         ##? LPF 
 
         ## CONSTANTS
         self.CONVERT_ms = 1e-3
         self.CONVERT_us = 1e-6
         self.CONVERT_ns = 1e-9
-        self.angular_thres = 1 #! default = 40
+        self.angular_thres = 40 #! default = 40
         self.FIRST_TIME = True
         self.close_range = np.round(np.arange(0.09, 0.2, 0.01), 2) #* range for detecting "close objects"
         ## CONSTANTS
@@ -37,7 +37,7 @@ class Braking_system(Node):
         self.declare_parameters(
             namespace='',
             parameters=[
-                ('min_time_col', 2.)
+                ('min_time_col', 1.)
             ]
         )
         self.emergency_msg.linear.x = 0.0
@@ -116,7 +116,7 @@ class Braking_system(Node):
 
 
         ## COMPUTE SPEED
-        dxs = [self.prev_rays[iray] - (rays[iray]) for iray in range(len(rays))]        
+        dxs = [(self.prev_rays[iray] - (rays[iray])) for iray in range(len(rays))]        
         self.speeds = [dx/dt for dx in dxs]
         filteredspeeds = [self.lpf(self.speeds[i], self.prev_speeds[i], self.alpha) for i in range(len(self.speeds))]
         ## COMPUTE SPEED
@@ -128,10 +128,12 @@ class Braking_system(Node):
             ## CAP FILTERED SPEED IF NAN OR INF
             if filspeed in (float('inf'), float('-inf')) or isnan(filspeed):
                 filteredspeeds[i] = self.prev_speeds[i]
-                print('\nCORRECTING SPEED\n')
+                # print('\nCORRECTING SPEED\n')
             ## CAP FILTERED SPEED IF NAN OR INF
 
-
+        i_selected = 0 #! DELETE THIS
+        for i in range(len(filteredspeeds)):
+            filspeed = filteredspeeds[i]
             ## COMPUTE TTC
             if filspeed > 0 and filspeed not in (float('inf'), float('-inf')) or isnan(filspeed):
                 time_to_collition = rays[i]/filspeed
@@ -144,9 +146,12 @@ class Braking_system(Node):
             if(time_to_collition < self.ttc_thres):
                 print('\n!!! BRAKING !!!\n')
                 self.emergency_pub.publish(self.emergency_msg)
+                i_selected = i
                 break
             ## APPLY EMERGENCY BRAKING
 
+
+        # print(f'ray {rays[120]} | prevray {self.prev_rays[120]}')
 
         ## RE ASSIGN VARIABLES
         self.prev_rays = rays
@@ -162,8 +167,13 @@ class Braking_system(Node):
         
         # print(f'ttc={round(time_to_collition, 3)} | lpf={round(self.speeds, 3)} | speed={round(self.speed, 3)} | x={round(self.currdistance, 3)} x1={round(self.prev_distance, 3)} dx={round(dx, 3)}')
         
-        print(filteredspeeds)
-        print(time_to_collition)
+        # print(f'ttc: {round(time_to_collition, 1)}|filsp: {round(filteredspeeds[i_selected], 2)}|sp: {round(self.speeds[i_selected], 2)} = {round(dxs[i_selected], 2)}/{round(dt, 2)}|prevsp: {round(self.prev_speeds[i_selected], 2)}|ray: {round(rays[i_selected], 2)} at {i_selected}')
+        print(dxs[120])
+        # print(f'ttc: {time_to_collition}|filsp: {round(filteredspeeds[i_selected], 2)}|sp: {round(self.speeds[i_selected], 2)}|ray: {round(rays[i_selected], 2)} at {i_selected}')
+        
+        
+        # print(len(filteredspeeds))
+        # print(len(self.speeds))
 
         # print(f'minray = {minray} | filspeed = {filteredspeed} | speed = {self.speed} | dx = {dx}')
 
