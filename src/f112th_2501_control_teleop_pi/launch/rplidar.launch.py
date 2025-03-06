@@ -71,15 +71,15 @@ def generate_launch_description():
                     remappings=[('/cmd_vel','/cmd_vel_joy')]
     ) 
 
-    aeb_node = Node(package='f112th_2501_control_teleop_pi',
+    aebs_node = Node(package='f112th_2501_control_teleop_pi',
                      executable='aebs_node',
-                     parameters=[aeb_params],)    
+                     parameters=[aeb_params])    
 
 
     twist_mux_node = Node(package='twist_mux', 
                     executable='twist_mux',
-                    parameters=[twist_mux_params,{'use_sim_time': True}],
-                    remappings=[('/cmd_vel_out','/cmd_vel')]
+                    parameters=[twist_mux_params],
+                    # remappings=[('/cmd_vel_out','/cmd_vel')]
     )
 
     
@@ -87,8 +87,8 @@ def generate_launch_description():
     return LaunchDescription([
         joy_node,
         teleop_node,
-        rplidar_node,
-        aeb_node,
-        # twist_mux_node
+        # rplidar_node,
+        aebs_node,
+        twist_mux_node
         ])
 
