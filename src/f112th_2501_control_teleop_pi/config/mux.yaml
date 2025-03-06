@@ -2,18 +2,18 @@ twist_mux:
   ros__parameters:
     topics:
       teleop:
-        topic   : /cmd_vel_teleop
+        topic   : cmd_vel_teleop
         timeout : 0.5
         priority: 1
       joystick: 
-        topic   : /cmd_vel_joy
+        topic   : cmd_vel_joy
         timeout : 0.5
-        priority: 3
+        priority: 5
       emergency: 
-        topic   : /cmd_vel_emerg
-        timeout : 0.0
-        priority: 4
+        topic   : cmd_vel_emerg
+        timeout : 0.1
+        priority: 100
       auton: 
-        topic   : /cmd_vel_auton
+        topic   : cmd_vel_auton
         timeout : 0.5
-        priority: 2
+        priority: 50

@@ -87,7 +87,7 @@ def generate_launch_description():
     return LaunchDescription([
         joy_node,
         teleop_node,
-        # rplidar_node,
+        rplidar_node,
         aebs_node,
         twist_mux_node
         ])
