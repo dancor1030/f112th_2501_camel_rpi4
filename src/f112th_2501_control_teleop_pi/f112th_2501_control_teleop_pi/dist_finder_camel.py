@@ -14,7 +14,7 @@ class Distance_finder(Node):
         self.declare_parameters(
             namespace='',
             parameters=[
-                ('angle_between_rays', 65)
+                ('angle_between_rays', 65),
                 ('backwards_index', 0)
                 # ! different param inputs from yaml with default
             ]

@@ -48,7 +48,7 @@ class ControlSystem(Node):
         # overall controller #? for Rozo's approach ======================
         self.controller = CPID(P, I, D, Ts)
         self.controller.setpoint(0) #! setpoint 0 because we want both 'y' and 'theta' (or alpha) to get to zero
-        self.Klin = 3.5
+        self.Klin = 0.1
         self.Kang = 1.0
         #? ===============================================================
 

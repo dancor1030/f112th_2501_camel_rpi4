@@ -1,36 +1,4 @@
-# from launch import LaunchDescription
-# from launch_ros.actions import Node
 
-# def generate_launch_description():
-
-#     # Definicion del nodo (pkg_name, node_name)
-#     rplidar_node = Node(
-#                     package = 'rplidar_ros',
-#                     executable = 'rplidar_composition',
-#                     output = 'screen',
-#                     parameters = [{
-#                         # 'serial_port': '/dev/serial/by-id/usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_Controller_0001-if00-port0',
-#                         'serial_port': '/dev/ttyUSB0',
-#                         'serial_baudrate' : 115200,
-#                         'frame_id': 'laser',
-#                         'inverted' : False,
-#                         'angle_compensate': True,
-#                         'scan_mode': 'Standard'
-#                         # 'scan_mode': 'Sensitivity'
-#                     }])
-
-
-
-#     #retorno "generate_launch_description", separar por comas, el objeto de cada nodo
-#     return LaunchDescription([
-#         rplidar_node,
-#     ])
-
-
-
-
-
-# library to move between files and folders in the O.S.
 import os
 from launch import LaunchDescription
 from launch_ros.actions import Node
@@ -57,19 +25,6 @@ def generate_launch_description():
                         'scan_mode': 'Standard'
                         # 'scan_mode': 'Sensitivity'
                     }])
-
-    # joy_node = Node(package='joy', 
-    #                 executable='joy_node',
-    #                 parameters=[joy_params],
-    # )
-
-    # ===== CONVERTS 'joy' IN 'cmd_vel'
-    # teleop_node = Node(package='teleop_twist_joy', 
-    #                 executable='teleop_node',
-    #                 name="teleop_node",
-    #                 parameters=[joy_params],
-    #                 remappings=[('/cmd_vel','/cmd_vel_joy')]
-    # ) 
 
     aeb_node = Node(package='f112th_2501_control_teleop_pi',
                      executable='aebs_node',
