@@ -18,7 +18,6 @@ class Braking_system(Node):
         self.prevtime = 0.
         self.currtime = 0.
         self.prev_distance = 0.
-        self.emergency_msg = Twist()
 
         ##? LPF 
         self.speed_km1 = 0. # speed in k-1 (after filtering)
@@ -42,8 +41,10 @@ class Braking_system(Node):
                 ('min_time_col', 4.)
             ]
         )
-        self.emergency_msg.linear.x = 0.0
-        self.emergency_msg.linear.y = 0.0       
+        
+        self.emergency_msg = Twist()
+        self.emergency_msg.linear.x = -0.5
+        self.emergency_msg.angular.z = 0.0       
         
 
 
@@ -154,7 +155,7 @@ class Braking_system(Node):
         # print(f'minray = {toprint} | ttc = {time_to_collition} | lpf = {filteredspeed} | speed = {self.speed}')
         # print(f'ttc = {time_to_collition} | lpf = {filteredspeed}')
         
-        print(f'ttc={round(time_to_collition, 3)} | lpf={round(filteredspeed, 3)} | speed={round(self.speed, 3)} | x={round(self.currdistance, 3)} x1={round(self.prev_distance, 3)} dx={round(dx, 3)}')
+        # print(f'ttc={round(time_to_collition, 3)} | lpf={round(filteredspeed, 3)} | speed={round(self.speed, 3)} | x={round(self.currdistance, 3)} x1={round(self.prev_distance, 3)} dx={round(dx, 3)}')
         
         # print(f'minray = {minray} | filspeed = {filteredspeed} | speed = {self.speed} | dx = {dx}')
 
