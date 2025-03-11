@@ -3,6 +3,7 @@ import rclpy
 from sensor_msgs.msg import Joy
 from geometry_msgs.msg import Twist
 from rclpy.node import Node
+from std_msgs.msg import Float32
 import time
 
 bot = Rosmaster()
@@ -19,6 +20,7 @@ class HW_TELEOP(Node):
 
         self.joy_sub = self.create_subscription(Joy, '/joy', self.toggle_deadman, 10)
         self.cmdvel_sub = self.create_subscription(Twist, "/cmd_vel", self.act, 10)
+        self.thrust_pub = self.create_publisher(Float32, "/thrust", 10)
         self.dir = 90
         self.thrust = 90
         self.deadman = 0
@@ -27,7 +29,10 @@ class HW_TELEOP(Node):
     def act(self, data):
         self.remotedir = data.angular.z
         self.remotethrust = data.linear.x
-        # self.reverse = data.buttons[3]        
+        # self.reverse = data.buttons[3]
+        msg = Float32()
+        msg.data = self.remotethrust  
+        self.thrust_pub.publish(msg)
         #! 'remote' means it is the value obtained from the remote controller
 
         if self.deadman == 0:

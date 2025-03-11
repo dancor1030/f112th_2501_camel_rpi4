@@ -2,6 +2,7 @@ import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import LaserScan
 from geometry_msgs.msg import Twist
+from std_msgs.msg import Float32
 from icecream import ic
 from math import isnan
 import time
@@ -11,6 +12,7 @@ class Braking_system(Node):
     def __init__(self):
         super().__init__("aebs_node")
         self.lidar_sub = self.create_subscription(LaserScan, "/scan", self.lidar_callback,10)
+        self.thrust_sub = self.create_subscription(Float32, "/thrust", self.lidar_callback,10)
         self.emergency_pub = self.create_publisher(Twist,"/cmd_vel_emerg",10)
 
         self.prevtime = 0.
@@ -37,11 +39,20 @@ class Braking_system(Node):
         self.declare_parameters(
             namespace='',
             parameters=[
-                ('min_time_col', 2.)
+                ('min_time_col', 4.)
             ]
         )
         self.emergency_msg.linear.x = 0.0
         self.emergency_msg.linear.y = 0.0       
+        
+
+
+    def change_emerg(self, msg):
+        if msg.data >= 0:
+            self.emergency_msg.linear.x = -msg.data
+        else:
+            self.emergency_msg.linear.x = 0.
+        
 
     def lidar_callback(self, data):
 
