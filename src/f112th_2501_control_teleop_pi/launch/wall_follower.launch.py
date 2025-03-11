@@ -15,19 +15,17 @@ def generate_launch_description():
                     executable = 'rplidar_composition',
                     output = 'screen',
                     parameters = [{
-                        # 'serial_port': '/dev/serial/by-id/usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_Controller_0001-if00-port0',
                         'serial_port': '/dev/ttyUSB1',
                         'serial_baudrate' : 115200,
                         'frame_id': 'laser',
                         'inverted' : False,
                         'angle_compensate': True,
                         'scan_mode': 'Standard'
-                        # 'scan_mode': 'Sensitivity'
                     }])
 
-    aeb_node = Node(package='f112th_2501_control_teleop_pi',
-                     executable='aebs_node',
-                    )    
+    # aeb_node = Node(package='f112th_2501_control_teleop_pi',
+    #                  executable='aebs_node',
+    #                 )    
 
 
     twist_mux_node = Node(package='twist_mux', 
@@ -49,7 +47,7 @@ def generate_launch_description():
     # Launch them all!
     return LaunchDescription([
         rplidar_node,
-        aeb_node,
+        # aeb_node,
         wall_follower_node,
         distfinder_node
         ])
