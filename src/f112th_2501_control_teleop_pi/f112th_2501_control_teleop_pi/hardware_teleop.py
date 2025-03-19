@@ -23,7 +23,7 @@ class HW_TELEOP(Node):
         self.thrust_pub = self.create_publisher(Float32, "/thrust", 10)
         self.dir = 90
         self.thrust = 90
-        self.deadman = 1
+        self.deadman = 0
         # self.pub = self.create_publisher()
 
     def act(self, data):
@@ -49,8 +49,8 @@ class HW_TELEOP(Node):
             bot.set_pwm_servo(1, self.dir)
             bot.set_pwm_servo(2, self.thrust)
 
-    # def toggle_deadman(self, data):
-    #     self.deadman = data.buttons[4]
+    def toggle_deadman(self, data):
+        self.deadman = data.buttons[4]
 
 def main(args=None):
     rclpy.init(args=args)
