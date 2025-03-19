@@ -41,13 +41,19 @@ def generate_launch_description():
 
     distfinder_node = Node(package='f112th_2501_control_teleop_pi',
                      executable='distfinder_node'
-                     )    
+                     ) 
+
+
+    hardware = Node(package='f112th_2501_control_teleop_pi',
+                     executable='hardware_teleop'
+                     )  
 
     
     # Launch them all!
     return LaunchDescription([
-        rplidar_node,
+        # rplidar_node,
         # aeb_node,
+        hardware,
         wall_follower_node,
         distfinder_node
         ])
