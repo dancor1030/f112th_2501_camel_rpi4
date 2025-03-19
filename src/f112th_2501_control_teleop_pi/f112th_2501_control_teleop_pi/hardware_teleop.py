@@ -18,7 +18,7 @@ class HW_TELEOP(Node):
     def __init__(self):
         super().__init__("hardware_teleop_node")
 
-        # self.joy_sub = self.create_subscription(Joy, '/joy', self.toggle_deadman, 10)
+        self.joy_sub = self.create_subscription(Joy, '/joy', self.toggle_deadman, 10)
         self.cmdvel_sub = self.create_subscription(Twist, "/cmd_vel", self.act, 10)
         self.thrust_pub = self.create_publisher(Float32, "/thrust", 10)
         self.dir = 90

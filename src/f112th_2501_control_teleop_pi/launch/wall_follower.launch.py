@@ -1,7 +1,10 @@
 import os
 from launch import LaunchDescription
 from launch_ros.actions import Node
+from launch.actions import IncludeLaunchDescription
 from ament_index_python.packages import get_package_share_directory
+from launch.launch_description_sources import PythonLaunchDescriptionSource
+
 
 def generate_launch_description():
 
@@ -10,27 +13,10 @@ def generate_launch_description():
     aeb_params = os.path.join(get_package_share_directory(package_name),'config','aebs.yaml')
     twist_mux_params = os.path.join(get_package_share_directory(package_name),'config','mux.yaml')
 
-    rplidar_node = Node(
-                    package = 'rplidar_ros',
-                    executable = 'rplidar_composition',
-                    output = 'screen',
-                    parameters = [{
-                        'serial_port': '/dev/ttyUSB1',
-                        'serial_baudrate' : 115200,
-                        'frame_id': 'laser',
-                        'inverted' : False,
-                        'angle_compensate': True,
-                        'scan_mode': 'Standard'
-                    }])
-
-    # aeb_node = Node(package='f112th_2501_control_teleop_pi',
-    #                  executable='aebs_node',
-    #                 )    
-
 
     twist_mux_node = Node(package='twist_mux', 
                     executable='twist_mux',
-                    parameters=[twist_mux_params,{'use_sim_time': True}],
+                    parameters=[twist_mux_params],
                     remappings=[('/cmd_vel_out','/cmd_vel')]
     )
 
@@ -48,12 +34,26 @@ def generate_launch_description():
                      executable='hardware_teleop'
                      )  
 
-    
+    teleop_node = Node(package='teleop_twist_joy', 
+                    executable='teleop_node',
+                    name="teleop_node",
+                    parameters=[joy_params],
+                    remappings=[('cmd_vel','cmd_vel_joy')]
+    )
+
+    aeb_node = Node(package='f112th_2501_control_teleop_pi',
+                     executable='aebs_node'
+                     )  
+
     # Launch them all!
     return LaunchDescription([
-        # rplidar_node,
-        # aeb_node,
+        # IncludeLaunchDescription(
+        #     PythonLaunchDescriptionSource('src/rplidar_ros/launch/rplidar_a1_launch.py')
+        # ),
+        twist_mux_node,
         hardware,
+        teleop_node,
+        aeb_node,
         wall_follower_node,
         distfinder_node
         ])

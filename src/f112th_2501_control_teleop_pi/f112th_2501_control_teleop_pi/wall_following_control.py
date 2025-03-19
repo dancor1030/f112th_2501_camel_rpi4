@@ -17,7 +17,7 @@ class ControlSystem(Node):
     def __init__(self):
         super().__init__("wall_follower_control")
         self.lidar_sub = self.create_subscription(Float32MultiArray, "/car_info", self.lidar_callback,10)
-        self.car_pub = self.create_publisher(Twist,"/cmd_vel",10)
+        self.car_pub = self.create_publisher(Twist,"/cmd_vel_cont",10)
         self.horizontal_ray = 0
         self.diagonal_ray = 0
         self.car_params = []

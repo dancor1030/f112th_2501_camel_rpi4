@@ -25,11 +25,6 @@ def generate_launch_description():
                         # 'scan_mode': 'Sensitivity'
                     }])
 
-    joy_node = Node(package='joy', 
-                    executable='joy_node',
-                    parameters=[joy_params],
-    )
-
     teleop_node = Node(package='teleop_twist_joy', 
                     executable='teleop_node',
                     name="teleop_node",
@@ -50,7 +45,6 @@ def generate_launch_description():
         
     # Launch them all!
     return LaunchDescription([
-        joy_node,
         teleop_node,
         # rplidar_node,
         # aeb_node,

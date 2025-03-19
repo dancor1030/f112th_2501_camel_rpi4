@@ -16,4 +16,4 @@ twist_mux:
       auton: 
         topic   : cmd_vel_cont
         timeout : 0.5
-        priority: 50S
+        priority: 50
