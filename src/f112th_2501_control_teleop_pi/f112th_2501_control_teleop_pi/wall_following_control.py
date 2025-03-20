@@ -28,7 +28,7 @@ class ControlSystem(Node):
                 ('I', 0.0000000001),                
                 ('D', 0.01),
                 ('Ts', 0.01), #! CAREFULLY CALCULATE THIS 'Ts' IF YOU ARE GOING TO USE IT
-                ('dist_setpoint', 0.3)
+                ('dist_setpoint', 0.4)
             ]
         )
         P = self.get_parameter('P').value
