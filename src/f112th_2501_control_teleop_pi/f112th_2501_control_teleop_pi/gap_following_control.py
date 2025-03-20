@@ -29,21 +29,22 @@ class GapFollower(Node):
         self.lidar_sub = self.create_subscription(LaserScan, "/scan", self.__lidar_callback,10)
         self.control_action = self.create_publisher(Twist,"/cmd_vel_cont",10)
         self.emergency_action = Twist()
-        self.emergency_action.angular.z = 0.5
-        self.Klin = 2.5
-        self.Kang = 1.0
+        self.emergency_action.angular.z = 0.0
+        self.emergency_action.linear.x = 0.0
+        self.Klin = 0.32
+        self.Kang = 0.2
         self.prev_time = tm.time()
 
         self.declare_parameters(
             namespace='',
             parameters=[
                 ('P', 0.6),
-                ('I', 0.1),
-                ('D', 0.2),
-                ('frontal_rays_number', int(360/4)*2), #! The 2 accounts for the 360*2 total rays.
-                ('minimum_object_distance', 3.),
-                ('car_width', 0.8),
-                ('corner_minimal_depht', 1.),
+                ('I', 0.0001),
+                ('D', 0.01),
+                ('frontal_rays_number', int(360)), #! The 2 accounts for the 360*2 total rays.
+                ('minimum_object_distance', 1.),
+                ('car_width', 0.1),
+                ('corner_minimal_depht', 0.1),
                 # ! different param inputs from yaml with default
             ]
         )
@@ -61,16 +62,17 @@ class GapFollower(Node):
         initial_index , visible_rays = self.__get_cone_view(msg)
         gap_relevant_rays = self.__floor_nearest(visible_rays, self.minimum_object_distance)
         interesting_gaps = self.__find_gaps(gap_relevant_rays)
-        best_gap = self.__get_best_gap(interesting_gaps, 0.6)
+        best_gap = self.__get_best_gap(interesting_gaps, 0.8)
+        ic(best_gap)
 
-        if best_gap == 1020. :
+        if best_gap == 1020.:
           self.control_action.publish(self.emergency_action)
           self._logger.warning("Entered on emergency mode, no feasable gap found")  
           self.angular_controller.__integral = 0
           return
 
         gap_angle_rad, gap_angle_deg = self.__get_gap_angle(best_gap, initial_index)
-        ic(gap_angle_deg, gap_angle_rad)
+        # ic(gap_angle_deg, gap_angle_rad)
         action = self.__get_control_action(gap_angle_rad)
         self.control_action.publish(action)
 
@@ -78,7 +80,7 @@ class GapFollower(Node):
         error = np.pi - gap_angle_rad
         dt = tm.time() - self.prev_time
         control_action = self.angular_controller.get_control_action(dt, error)
-        ic(control_action)
+        # ic(control_action)
         action = Twist()
         action.angular.z = -control_action
         linvel = self.Klin/(abs(self.Kang*action.angular.z) + 1)
@@ -92,7 +94,7 @@ class GapFollower(Node):
         for ray in best_gap:
             aqumulated_sum += ray[1]
         mean_indx = aqumulated_sum//len(best_gap) 
-        return (np.pi/180)*(init_index + mean_indx) , (init_index + mean_indx)
+        return (np.pi/360)*(init_index + mean_indx) , (init_index + mean_indx)/2
 
     def __get_best_gap(self, interesting_gaps : float, k : float) -> float:
         greatest_weight_index = 0
@@ -114,7 +116,7 @@ class GapFollower(Node):
                 prev_biggest_weight = weight
             max_ray = 0.
         greatest_weight = interesting_gaps[greatest_weight_index]
-        ic(greatest_weight)
+        # ic(greatest_weight)
         return greatest_weight
 
     def __find_gaps(self, relevant_rays : float) -> float:
@@ -141,6 +143,7 @@ class GapFollower(Node):
         if current_gap:
             gaps.append(current_gap) #Just in case of the last, if its not empty
         # ! ----------------------------------------------------------------------------
+        
         return gaps
 
     def __supress_rays(self, corner_ray : float, relevant_rays : float) -> float:
@@ -150,6 +153,7 @@ class GapFollower(Node):
         for ii in range(int(2*index_supp//2 + 1)):
             if (corner_ray[0] - ii) > 0. and (corner_ray[0] - ii) < len(relevant_rays):
                 relevant_rays[corner_ray[0] - ii] = 0.        
+        # ic(supression_angle,relevant_rays)                
 
     def __find_corners(self, relevant_rays : float) -> float:
         prev_ray = relevant_rays[0]
@@ -169,6 +173,8 @@ class GapFollower(Node):
     def __floor_ray(self, ray : float, thresh : float) -> float:
         if(ray < thresh):
             return 0.
+        elif(np.isinf(ray)):
+            return 12.
         else:
             return ray
 
