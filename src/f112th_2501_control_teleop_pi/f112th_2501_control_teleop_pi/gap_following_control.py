@@ -38,13 +38,13 @@ class GapFollower(Node):
         self.declare_parameters(
             namespace='',
             parameters=[
-                ('P', 0.6),
+                ('P', 0.8),
                 ('I', 0.0001),
                 ('D', 0.01),
-                ('frontal_rays_number', int(360)), #! The 2 accounts for the 360*2 total rays.
-                ('minimum_object_distance', 1.),
+                ('frontal_rays_number', int(130)), #! The 2 accounts for the 360*2 total rays.
+                ('minimum_object_distance', 1.5),
                 ('car_width', 0.1),
-                ('corner_minimal_depht', 0.1),
+                ('corner_minimal_depht', 0.08),
                 # ! different param inputs from yaml with default
             ]
         )
@@ -62,17 +62,18 @@ class GapFollower(Node):
         initial_index , visible_rays = self.__get_cone_view(msg)
         gap_relevant_rays = self.__floor_nearest(visible_rays, self.minimum_object_distance)
         interesting_gaps = self.__find_gaps(gap_relevant_rays)
-        best_gap = self.__get_best_gap(interesting_gaps, 0.8)
-        ic(best_gap)
+        best_gap = self.__get_best_gap(interesting_gaps, 0.7)
+        # ic(best_gap)
 
         if best_gap == 1020.:
           self.control_action.publish(self.emergency_action)
           self._logger.warning("Entered on emergency mode, no feasable gap found")  
           self.angular_controller.__integral = 0
+          self.control_action.publish(self.emergency_action)
           return
 
         gap_angle_rad, gap_angle_deg = self.__get_gap_angle(best_gap, initial_index)
-        # ic(gap_angle_deg, gap_angle_rad)
+        ic(gap_angle_deg, gap_angle_rad)
         action = self.__get_control_action(gap_angle_rad)
         self.control_action.publish(action)
 

@@ -28,7 +28,7 @@ class ControlSystem(Node):
                 ('I', 0.0000000001),                
                 ('D', 0.01),
                 ('Ts', 0.01), #! CAREFULLY CALCULATE THIS 'Ts' IF YOU ARE GOING TO USE IT
-                ('dist_setpoint', 0.4)
+                ('dist_setpoint', 0.3)
             ]
         )
         P = self.get_parameter('P').value
@@ -49,6 +49,7 @@ class ControlSystem(Node):
         self.controller = CPID(P, I, D, Ts)
         self.controller.setpoint(0) #! setpoint 0 because we want both 'y' and 'theta' (or alpha) to get to zero
         self.Klin = 0.32
+        # self.Klin = 0
         self.Kang = 0.2
         #? ===============================================================
 
@@ -57,6 +58,10 @@ class ControlSystem(Node):
     def lidar_callback(self, data):
         self.alpha = data.data[0]
         self.wall_dist = data.data[1]
+
+        if(np.isinf(self.wall_dist)):
+            return
+
         # ic(self.alpha)
         # ic(self.wall_dist) 
 
@@ -78,12 +83,13 @@ class ControlSystem(Node):
         self.measured_var = (y_coordinate + self.L*sin(self.alpha))
         angvel = self.controller.get_discr_u(self.measured_var)
         linvel = self.Klin/(abs(self.Kang*angvel) + 1) # absolute value of angvel because linvel can never be <= 0.
+        # ic(angvel,linvel)
         #? =====================================================================================================
         
-        ic(y_coordinate)        
-        ic(self.alpha)        
-        ic(self.measured_var)
-        ic(self.controller.error)
+        # ic(y_coordinate)        
+        # ic(self.alpha)        
+        # ic(self.measured_var)
+        # ic(self.controller.error)
 
 
         msg = Twist()
