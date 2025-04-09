@@ -14,7 +14,7 @@ class Distance_finder(Node):
         self.declare_parameters(
             namespace='',
             parameters=[
-                ('angle_between_rays', 45),
+                ('angle_between_rays', 65),
                 ('backwards_index', 0)
                 # ! different param inputs from yaml with default
             ]
@@ -55,16 +55,16 @@ class Distance_finder(Node):
         horizontal_ray_1 = msg.ranges[self.backward_angle_index + len(msg.ranges)//4] #? Rely on the array windback
         horizontal_ray_2 = msg.ranges[self.backward_angle_index + (len(msg.ranges)//4)*3] #? Rely on the array windback
         # ic(horizontal_ray_1,horizontal_ray_2)
-        if (horizontal_ray_2 < horizontal_ray_1):
-            self.horizontal_ray = horizontal_ray_2
-            self.diagonal_ray = msg.ranges[self.backward_angle_index + (len(msg.ranges)//4)*3 - self.angle_between_rays*2] #? Rely on the array windback
-            # ic("Izquierda")
-            self.sign = 1
-        else:
-            self.horizontal_ray = horizontal_ray_1
-            self.diagonal_ray = msg.ranges[self.backward_angle_index + len(msg.ranges)//4 + self.angle_between_rays*2] #? Rely on the array windback
-            # ic("Derecha")
-            self.sign = 0
+        # if (horizontal_ray_2 < horizontal_ray_1):
+        #     self.horizontal_ray = horizontal_ray_2
+        #     self.diagonal_ray = msg.ranges[self.backward_angle_index + (len(msg.ranges)//4)*3 - self.angle_between_rays*2] #? Rely on the array windback
+        #     # ic("Izquierda")
+        #     self.sign = 1
+        # else:
+        self.horizontal_ray = horizontal_ray_1
+        self.diagonal_ray = msg.ranges[self.backward_angle_index + len(msg.ranges)//4 + self.angle_between_rays*2] #? Rely on the array windback
+        # ic("Derecha")
+        self.sign = 0
 
         return self.horizontal_ray , self.diagonal_ray
 

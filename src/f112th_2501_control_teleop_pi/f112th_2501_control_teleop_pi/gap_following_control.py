@@ -31,21 +31,20 @@ class GapFollower(Node):
         self.emergency_action = Twist()
         self.emergency_action.angular.z = 0.0
         self.emergency_action.linear.x = 0.0
-        self.Klin = 0.32
-        self.Kang = 0.2
+        self.Klin = 0.38
+        self.Kang = 0.65
         self.prev_time = tm.time()
 
         self.declare_parameters(
             namespace='',
             parameters=[
-                ('P', 0.8),
+                ('P', .63),
                 ('I', 0.0001),
                 ('D', 0.01),
-                ('frontal_rays_number', int(130)), #! The 2 accounts for the 360*2 total rays.
-                ('minimum_object_distance', 1.5),
-                ('car_width', 0.1),
-                ('corner_minimal_depht', 0.08),
-                # ! different param inputs from yaml with default
+                ('frontal_rays_number', int(240)), #! The 2 accounts for the 360*2 total rays. # 200 used to work
+                ('minimum_object_distance', 1.9),
+                ('car_width', 0.22),
+                ('corner_minimal_depht', 0.15), #Def at 10c                # ! different param inputs from yaml with default
             ]
         )
 
@@ -62,7 +61,7 @@ class GapFollower(Node):
         initial_index , visible_rays = self.__get_cone_view(msg)
         gap_relevant_rays = self.__floor_nearest(visible_rays, self.minimum_object_distance)
         interesting_gaps = self.__find_gaps(gap_relevant_rays)
-        best_gap = self.__get_best_gap(interesting_gaps, 0.7)
+        best_gap = self.__get_best_gap(interesting_gaps, 0.50)
         # ic(best_gap)
 
         if best_gap == 1020.:

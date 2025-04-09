@@ -42,11 +42,11 @@ def generate_launch_description():
 
     # Launch them all!
     return LaunchDescription([
-        IncludeLaunchDescription(
-            PythonLaunchDescriptionSource('src/rplidar_ros/launch/rplidar_a1_launch.py')
-        ),
+        # IncludeLaunchDescription(
+        #     PythonLaunchDescriptionSource('src/rplidar_ros/launch/rplidar_a1_launch.py')
+        # ),
         twist_mux_node,
         hardware_node,
         teleop_node,        
-        gap_follower_node
+        # gap_follower_node
         ])
