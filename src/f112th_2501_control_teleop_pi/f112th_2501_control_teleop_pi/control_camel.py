@@ -12,6 +12,7 @@ import sys
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from ControlTools import ControllerPID as CPID
 
+ic.disable()
 
 class ControlSystem(Node):
     def __init__(self):
@@ -80,10 +81,10 @@ class ControlSystem(Node):
         linvel = self.Klin/(abs(self.Kang*angvel) + 1) # absolute value of angvel because linvel can never be <= 0.
         #? =====================================================================================================
         
-        ic(y_coordinate)        
-        ic(self.alpha)        
-        ic(self.measured_var)
-        ic(self.controller.error)
+        # ic(y_coordinate)        
+        # ic(self.alpha)        
+        # ic(self.measured_var)
+        # ic(self.controller.error)
 
 
         msg = Twist()

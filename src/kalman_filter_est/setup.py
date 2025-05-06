@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 import os
 from glob import glob
 
-package_name = 'f112th_2501_control_teleop_pi'
+package_name = 'kalman_filter_est'
 
 setup(
     name=package_name,
@@ -25,11 +25,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'hardware_teleop = f112th_2501_control_teleop_pi.hardware_teleop:main',
-            'aebs_node = f112th_2501_control_teleop_pi.aebs:main', 
-            'wall_follower_node = f112th_2501_control_teleop_pi.control_camel:main',
-            'distfinder_node = f112th_2501_control_teleop_pi.dist_finder_camel:main',
-            'frame_node = f112th_2501_control_teleop_pi.frame_transform:main'
+            'kalman_estimator = kalman_filter_est.kalman_estimator:main',
         ],
     },
 )

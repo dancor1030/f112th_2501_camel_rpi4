@@ -34,7 +34,7 @@ class Distance_finder(Node):
 
         self.diagonal_ray = self.__get_diagonal_ray(msg)
 
-        # ic(self.horizontal_ray , self.diagonal_ray, self.angle_between_rays)
+        ic(self.horizontal_ray , self.diagonal_ray, self.angle_between_rays)
 
         self.car_params = self.__get_car_params(self.horizontal_ray, self.diagonal_ray,  angle_increment)
 

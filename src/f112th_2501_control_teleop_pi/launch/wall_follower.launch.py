@@ -43,11 +43,12 @@ def generate_launch_description():
                      executable='distfinder_node'
                      )    
 
+
+
     
     # Launch them all!
     return LaunchDescription([
         rplidar_node,
-        # aeb_node,
         wall_follower_node,
         distfinder_node
         ])
