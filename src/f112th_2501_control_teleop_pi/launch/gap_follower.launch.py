@@ -18,32 +18,27 @@ def generate_launch_description():
                     executable='twist_mux',
                     parameters=[twist_mux_params],
                     remappings=[('/cmd_vel_out','/cmd_vel')]
-    )
-
-    wall_follower_node = Node(package='f112th_2501_control_teleop_pi',
-                     executable='wall_follower_node'
-                     )    
+                    )
 
 
-    distfinder_node = Node(package='f112th_2501_control_teleop_pi',
-                     executable='distfinder_node'
-                     ) 
-
-
-    hardware = Node(package='f112th_2501_control_teleop_pi',
+    hardware_node = Node(package='f112th_2501_control_teleop_pi',
                      executable='hardware_teleop'
-                     )  
+                    )  
 
     teleop_node = Node(package='teleop_twist_joy', 
                     executable='teleop_node',
                     name="teleop_node",
                     parameters=[joy_params],
                     remappings=[('cmd_vel','cmd_vel_joy')]
-    )
+                    )
 
     aeb_node = Node(package='f112th_2501_control_teleop_pi',
                      executable='aebs_node'
-                     )  
+                    )  
+    
+    gap_follower_node = Node(package='f112th_2501_control_teleop_pi',
+                     executable='gap_follower_node'
+                    )      
 
     # Launch them all!
     return LaunchDescription([
@@ -51,9 +46,7 @@ def generate_launch_description():
             PythonLaunchDescriptionSource('src/rplidar_ros/launch/rplidar_a1_launch.py')
         ),
         twist_mux_node,
-        hardware,
-        teleop_node,
-        # aeb_node,
-        wall_follower_node,
-        distfinder_node
+        hardware_node,
+        teleop_node,        
+        gap_follower_node
         ])
