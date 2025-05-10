@@ -39,7 +39,7 @@ class KalmanFilter():
 
     def __kf_update(self):
         while(1):
-            self.__time_update(u_t)
+            self.__time_update(self.u_t)
             if self.measurement_flag:
                 self.__measurement_update()
             time.sleep(self.dt)
@@ -55,5 +55,5 @@ class KalmanFilter():
         self.measurement_flag = 0
 
     def __start_kf(self):
-        kf_thread = threading.Thread(target=Self.__kf_update, args=())
+        kf_thread = threading.Thread(target=self.__kf_update, args=())
         kf_thread.start()
