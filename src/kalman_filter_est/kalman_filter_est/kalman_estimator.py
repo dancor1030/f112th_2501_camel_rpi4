@@ -14,6 +14,9 @@ from  Rosmaster_Lib  import  Rosmaster
 import time
 #! Lirbary http://www.yahboom.net/public/upload/upload-html/1689913026/3.%20Install%20Rosmaster%20driver%20library.html
 
+
+
+
 class KalmanFilterNode(Node):
     def __init__(self):
         super().__init__("KalmanFilterNode")
@@ -28,9 +31,18 @@ class KalmanFilterNode(Node):
         self.local_ang_vel = [0., 0., 0.]
         self.local_mag = [0., 0., 0.]
 
+        #! Angle Kf ------------------------------------
+
+
+        #! ---------------------------------------------
+
+        #! Car Kf --------------------------------------
+
+
+        #! ---------------------------------------------
+
         self.kf_angle = KalmanFilter()
         self.kf_body = KalmanFilter()
-
         self.x = np.zeros((3,1))
     
 
@@ -62,13 +74,6 @@ class KalmanFilterNode(Node):
         self.local_accel[0], self.local_accel[1], self.local_accel[2] = self.car_robot.get_accelerometer_data()
         self.local_ang_vel[0], self.local_ang_vel[1], self.local_ang_vel[2], = self.car_robot.get_gyroscope_data()
         self.local_mag[0], self.local_mag[1], self.local_mag[2] = self.car_robot.get_magnetometer_data()
-
-
-
-
-
-
-
 
 
 def main(args=None):
