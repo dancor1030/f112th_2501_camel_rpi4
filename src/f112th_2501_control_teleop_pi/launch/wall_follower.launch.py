@@ -45,6 +45,11 @@ def generate_launch_description():
                      executable='aebs_node'
                      )  
 
+    frame_node = Node(package='f112th_2501_control_teleop_pi',
+                     executable='frame_node'
+                     )  
+
+
     # Launch them all!
     return LaunchDescription([
         IncludeLaunchDescription(
@@ -53,7 +58,8 @@ def generate_launch_description():
         twist_mux_node,
         hardware,
         teleop_node,
+        frame_node
         # aeb_node,
-        wall_follower_node,
-        distfinder_node
+        # wall_follower_node,
+        # distfinder_node
         ])

@@ -5,13 +5,12 @@ from nav_msgs.msg import Odometry
 from tf2_ros import TransformBroadcaster
 from geometry_msgs.msg import TransformStamped
 
-
 from kalman_filter_est.kalman_filter_class import KalmanFilter
-
 import numpy as np
-
 from  Rosmaster_Lib  import  Rosmaster
 import time
+import math
+
 #! Lirbary http://www.yahboom.net/public/upload/upload-html/1689913026/3.%20Install%20Rosmaster%20driver%20library.html
 
 class KalmanFilterNode(Node):
@@ -27,6 +26,7 @@ class KalmanFilterNode(Node):
         self.local_accel = [0., 0., 0.]
         self.local_ang_vel = [0., 0., 0.]
         self.local_mag = [0., 0., 0.]
+
 
         self.kf_angle = KalmanFilter()
         self.kf_body = KalmanFilter()
@@ -66,14 +66,9 @@ class KalmanFilterNode(Node):
 
 
 
-
-
-
-
-
 def main(args=None):
     rclpy.init(args=args)
-    hw_node = HW_TELEOP()
+    hw_node = KalmanFilterNode()
     rclpy.spin(hw_node)
     rclpy.shutdown()
 
