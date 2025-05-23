@@ -25,7 +25,7 @@ setup(
     entry_points={
         'console_scripts': [
             'hardware_teleop = f112th_2501_control_teleop_pi.hardware_teleop:main',
-            'aebs_node = f112th_2501_control_teleop_pi.aebs:main', 
+            'aebs_node = f112th_2501_control_teleop_pi.aebs:main',  
             'wall_follower_node = f112th_2501_control_teleop_pi.wall_following_control:main',
             'distfinder_node = f112th_2501_control_teleop_pi.dist_finder_camel:main',
             'frame_node = f112th_2501_control_teleop_pi.frame_transform:main',

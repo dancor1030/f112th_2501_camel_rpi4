@@ -7,11 +7,15 @@ from geometry_msgs.msg import TransformStamped
 
 from kalman_filter_est.kalman_filter_class import KalmanFilter
 import numpy as np
-from  Rosmaster_Lib  import  Rosmaster
+import math
 import time
+from  Rosmaster_Lib  import  Rosmaster
 import math
 
-#! Lirbary http://www.yahboom.net/public/upload/upload-html/1689913026/3.%20Install%20Rosmaster%20driver%20library.html
+#! Library http://www.yahboom.net/public/upload/upload-html/1689913026/3.%20Install%20Rosmaster%20driver%20library.html
+
+
+
 
 class KalmanFilterNode(Node):
     def __init__(self):
@@ -27,10 +31,18 @@ class KalmanFilterNode(Node):
         self.local_ang_vel = [0., 0., 0.]
         self.local_mag = [0., 0., 0.]
 
+        #! Angle Kf ------------------------------------
+
+
+        #! ---------------------------------------------
+
+        #! Car Kf --------------------------------------
+
+
+        #! ---------------------------------------------
 
         self.kf_angle = KalmanFilter()
         self.kf_body = KalmanFilter()
-
         self.x = np.zeros((3,1))
     
 
@@ -66,8 +78,14 @@ class KalmanFilterNode(Node):
 
 
 
+
+
+
+
+
 def main(args=None):
     rclpy.init(args=args)
+    hw_node = KalmanFilterNode()
     hw_node = KalmanFilterNode()
     rclpy.spin(hw_node)
     rclpy.shutdown()
