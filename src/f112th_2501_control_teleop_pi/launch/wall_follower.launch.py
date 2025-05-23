@@ -54,6 +54,6 @@ def generate_launch_description():
         hardware,
         teleop_node,
         # aeb_node,
-        wall_follower_node,
-        distfinder_node
+        # wall_follower_node,
+        # distfinder_node
         ])
