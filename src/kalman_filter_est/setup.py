@@ -26,6 +26,7 @@ setup(
     entry_points={
         'console_scripts': [
             'kalman_estimator = kalman_filter_est.kalman_estimator:main',
+            'odom_test = kalman_filter_est.odom_test:main',
         ],
     },
 )
