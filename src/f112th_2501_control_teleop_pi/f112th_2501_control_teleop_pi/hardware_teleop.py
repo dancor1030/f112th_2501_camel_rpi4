@@ -43,7 +43,7 @@ class HW_TELEOP(Node):
             ## STOP EVERYTHING
         else:
             self.dir = map(self.remotedir, 0, 90, 1, 135)
-            self.thrust = map(self.remotethrust, 0, 90, 1, 120)
+            self.thrust = map(self.remotethrust, 0, 90, 1, 60)
 
             print(f'dir: {self.dir} | thrust: {self.thrust}')        
             bot.set_pwm_servo(1, self.dir)
