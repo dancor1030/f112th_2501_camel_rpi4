@@ -38,12 +38,12 @@ def generate_launch_description():
     # )
 
     rviz_config_file = os.path.join(
-        get_package_share_directory('auton_nav'),
+        get_package_share_directory('auton_nav_rpi4'),
         'config',
         'config1.rviz'
     )
 
-    bringup_dir = get_package_share_directory('auton_nav')
+    bringup_dir = get_package_share_directory('auton_nav_rpi4')
 
     namespace = LaunchConfiguration('namespace')
     map_yaml_file = LaunchConfiguration('map')

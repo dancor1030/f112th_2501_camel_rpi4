@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 from glob import glob
 import os
 
-package_name = 'auton_nav'
+package_name = 'auton_nav_rpi4'
 
 setup(
     name=package_name,
