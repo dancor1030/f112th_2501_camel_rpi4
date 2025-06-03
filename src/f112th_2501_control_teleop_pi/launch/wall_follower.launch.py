@@ -53,7 +53,7 @@ def generate_launch_description():
     # Launch them all!
     return LaunchDescription([
         IncludeLaunchDescription(
-            PythonLaunchDescriptionSource('src/rplidar_ros/launch/rplidar_a1_launch.py')
+            PythonLaunchDescriptionSource('/home/camel/f112th_2501_camel_rpi4/src/rplidar_ros/launch/rplidar_a1_launch.py')
         ),
         twist_mux_node,
         hardware,
