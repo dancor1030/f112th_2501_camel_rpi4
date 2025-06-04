@@ -13,7 +13,9 @@ setup(
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
         (os.path.join('share', package_name, 'launch'), glob(os.path.join('launch', '*launch.[pxy][yma]*'))),
-        (os.path.join('share', package_name, 'config'), glob(os.path.join('config', '*.[yaml]*')))
+        (os.path.join('share', package_name, 'config'), glob(os.path.join('config', '*.[yaml]*'))),
+         (os.path.join('share', package_name, 'config'), glob(os.path.join('config', '*.[rviz]*'))),
+        
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -24,8 +26,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'a_star = auton_nav.a_star:main',
-            'pure_pursuit = auton_nav.pure_pursuit:main',
+            'a_star = auton_nav_rpi4.a_star:main',
+            'pure_pursuit = auton_nav_rpi4.pure_pursuit:main',
         ],
     },
 )

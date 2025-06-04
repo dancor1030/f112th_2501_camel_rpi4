@@ -62,8 +62,8 @@ class PurePursuit(Node):
             return
 
         # Robot pose
-        rx = self.pose.position.x
-        ry = self.pose.position.y
+        rx = self.pose.position.x/1000.
+        ry = self.pose.position.y/1000.
         yaw = self.get_yaw_from_quaternion(self.pose.orientation)
 
         # Find goal point
@@ -99,17 +99,19 @@ class PurePursuit(Node):
             self.get_logger().info("Goal is directly behind the robot.")
             return
 
-        ic(yaw)
+        # ic(yaw)
     
         angular_z = (math.atan2(local_y,local_x))
 
-        ic(angular_z)
 
         # Publish command
         drive_msg = Twist()
-        drive_msg.linear.x = 0.8  # Constant linear velocity
+        drive_msg.linear.x = 0.5  # Constant linear velocity
         drive_msg.angular.z = angular_z
         self.cmd_pub.publish(drive_msg)
+
+        ic(angular_z, drive_msg.linear.x)
+
 
     def pure_pursuit_control(self):
 

@@ -124,14 +124,7 @@ def generate_launch_description():
 
     load_nodes = GroupAction(
         condition=IfCondition(PythonExpression(['not ', use_composition])),
-        actions=[
-
-            # IncludeLaunchDescription(
-            #     PythonLaunchDescriptionSource(sim_launch_file_path),
-            #     launch_arguments={
-            #         # 'arg_name': 'arg_value'  # optional: pass arguments if needed
-            #     }.items()
-            # ),
+        actions=[        
             Node(
                 package='nav2_map_server',
                 executable='map_server',

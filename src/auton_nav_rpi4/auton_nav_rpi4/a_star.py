@@ -7,8 +7,9 @@ import math
 import numpy as np
 import matplotlib.pyplot as plt
 import heapq
+from icecream import ic
 
-expansion_size = 8
+expansion_size = 3
 
 def costmap(data, width, height, resolution):
     data = np.array(data).reshape(height, width)
@@ -91,8 +92,8 @@ class Nav2501HNode(Node):
         self.map_ready = True
 
     def Odom_callback(self, msg):
-        self.x = msg.pose.pose.position.x
-        self.y = msg.pose.pose.position.y
+        self.x = msg.pose.pose.position.x/1000.
+        self.y = msg.pose.pose.position.y/1000.
         self.yaw = euler_from_quaternion(
             msg.pose.pose.orientation.x,
             msg.pose.pose.orientation.y,
@@ -111,6 +112,9 @@ class Nav2501HNode(Node):
                 self.get_logger().warn('Map not received yet.')
 
     def get_map(self):
+
+        print(f"{self.originY},{self.resolution},{self.y}")
+        ic(self.originY,self.resolution,self.y)
 
         data = costmap(self.map_data, self.width, self.height, self.resolution)
 
